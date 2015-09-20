@@ -174,9 +174,9 @@ The median is 1.076618910^{4}.</li>
 <pre class="r"><code>day_type &lt;- weekdays(as.Date(all_filled_data$date))</code></pre></li>
 <li><p>Conver weekdays to “weekday” and “weekend”. Sunday and Saturday are “weekend”, others are “weekday”. But my computer’s operating system is not English language, “Sunday” named “星期日” and “Saturday” named “星期六” in my computer. <strong>When you reproduct this script you need to replace “星期日” to “Sunday” and “星期六” to “Saturday”.</strong></p>
 <pre class="r"><code>weekend_logic &lt;- day_type == &quot;星期日&quot; | day_type == &quot;星期六&quot;
-all_filled_data$day_type &lt;- ifelse(weekend_logic,&quot;weekend&quot;, &quot;weekday&quot;)</code></pre>
+all_filled_data$day_type &lt;- ifelse(weekend_logic,&quot;weekend&quot;, &quot;weekday&quot;)</code></pre></li>
+</ol>
 <p>The data frame “all_filled_data” now contain a coloumn named “day_type” indicating whether that day is a weekday or weekend day.</p></li>
-</ol></li>
 <li><p>Make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).</p>
 <pre class="r"><code>avg_steps_per_interval_by_day_type &lt;- aggregate(steps ~ interval + day_type, data = all_filled_data, mean)
 library(lattice)
